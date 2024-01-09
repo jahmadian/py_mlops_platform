@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   postgres:
+    container_name: postgres
     build:
       context: ./docker/postgres
     image: postgres:12.7-alpine3.14
