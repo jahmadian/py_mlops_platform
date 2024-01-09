@@ -3,5 +3,3 @@ FROM postgres:12.7-alpine3.14
 # see: https://github.com/docker-library/docs/tree/master/postgres#arbitrary---user-notes
 
 COPY init.sql /docker-entrypoint-initdb.d/
-
-RUN chmod +rwx /var/lib/postgresql/data
