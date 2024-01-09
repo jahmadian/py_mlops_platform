@@ -18,7 +18,7 @@ services:
       - ./${POSTGRES_STORE}:/var/lib/postgresql/data
     healthcheck:
       test: [CMD-SHELL, -U postgres, pg_isready]
-      interval: 1s
+      interval: 2s
       timeout: 5s
       retries: 10
 
