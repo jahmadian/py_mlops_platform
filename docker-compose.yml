@@ -27,7 +27,7 @@ services:
       context: ./docker/mlflow
       args:
         - MLFLOW_VERSION=${MLFLOW_VERSION}
-    image: ${IMAGE_OWNER}/${REPO_SLUG}/${MLFLOW_IMAGE_NAME}:${VERSION}
+    image: ghcr.io/mlflow/mlflow:v2.9.2
     expose:
       - "${MLFLOW_TRACKING_SERVER_PORT}"
     ports:
