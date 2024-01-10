@@ -1,8 +1,5 @@
 FROM ghcr.io/mlflow/mlflow:v2.9.2
 
-EXPOSE 5000
-
-ARG MLFLOW_VERSION
 ARG SERVER_DIR=/server
 
 RUN pip install psycopg2-binary==2.9.9
