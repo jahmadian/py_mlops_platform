@@ -9,8 +9,7 @@ RUN pip install psycopg2-binary==2.9.9
 
 WORKDIR ${SERVER_DIR}
 
-CMD ./wait-for-it.sh ${MLFLOW_BACKEND_STORE}:${POSTGRES_PORT} -t ${WAIT_FOR_IT_TIMEOUT} -- \
-    mlflow server \
+CMD mlflow server \
     --backend-store-uri postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${MLFLOW_BACKEND_STORE}:${POSTGRES_PORT}/${POSTGRES_DATABASE} \
     --default-artifact-root /${MLFLOW_ARTIFACT_STORE} \
     --host ${MLFLOW_TRACKING_SERVER_HOST} \
