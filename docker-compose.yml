@@ -67,6 +67,6 @@ services:
       CHOWN_HOME: "yes"
       CHOWN_HOME_OPTS: '-R'
     volumes:
-      - ./:/home/${JUPYTER_USERNAME}/work
+      - ./notebook:/home/${JUPYTER_USERNAME}/work
       - ./${MLFLOW_ARTIFACT_STORE}:/${MLFLOW_ARTIFACT_STORE}
 
