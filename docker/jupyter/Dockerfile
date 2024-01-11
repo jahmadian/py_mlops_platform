@@ -7,7 +7,7 @@ ARG JUPYTER_USERNAME
 ENV HOME_DIR=/home/$JUPYTER_USERNAME
 ENV WORK_DIR=$HOME_DIR/work
 
-RUN pip install --upgrade notebook==7.0.2
+RUN pip install --upgrade notebook==6.4.12
 COPY ./requirements.txt ./
 RUN pip install --upgrade pip && \
     pip install -r ./requirements.txt
@@ -28,7 +28,7 @@ USER $NB_UID
 WORKDIR $WORK_DIR
 RUN fix-permissions $HOME_DIR
 COPY ./requirements.txt ./
-
+RUN pip install --upgrade notebook==6.4.12
 RUN pip install --upgrade pip && \
     pip install -r ./requirements.txt --user
 
