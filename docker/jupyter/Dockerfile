@@ -7,7 +7,12 @@ ARG JUPYTER_USERNAME
 ENV HOME_DIR=/home/$JUPYTER_USERNAME
 ENV WORK_DIR=$HOME_DIR/work
 
+
+RUN sudo apt-get update
+RUN sudo apt install -y git
+
 RUN pip install --upgrade notebook==6.4.12
+RUN pip install --upgrade jupyterlab jupyterlab-git
 COPY ./requirements.txt ./
 RUN pip install --upgrade pip && \
     pip install -r ./requirements.txt
@@ -27,10 +32,10 @@ USER $NB_UID
 # Useful for development since changes in code will not trigger a layer re-build
 WORKDIR $WORK_DIR
 #RUN fix-permissions $HOME_DIR
-COPY ./requirements.txt ./
-RUN pip install --upgrade notebook==6.4.12
-RUN pip install --upgrade pip
-RUN pip install -r ./requirements.txt --user
+#COPY ./requirements.txt ./
+#RUN pip install --upgrade notebook==6.4.12
+#RUN pip install --upgrade pip
+#RUN pip install -r ./requirements.txt --user
 
 # install experiment code in editable mode
 #COPY ./setup.py ./
