@@ -29,4 +29,4 @@ RUN jupyter nbextension enable collapsible_headings/main --sys-prefix
 
 USER $NB_UID
 WORKDIR $WORK_DIR
-RUN fix-permissions $HOME_DIR
+#RUN fix-permissions $HOME_DIR
