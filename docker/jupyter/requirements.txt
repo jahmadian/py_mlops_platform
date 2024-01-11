@@ -1,0 +1,8 @@
+pytest
+pytest-dependency
+mlflow==2.9.2
+traitlets==5.9.0
+psycopg2-binary==2.9.9
+jupyter_contrib_nbextensions==0.7.0
+jupyter_nbextensions_configurator==0.6.3
+build
