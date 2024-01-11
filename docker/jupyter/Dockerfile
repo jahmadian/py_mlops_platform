@@ -28,19 +28,5 @@ RUN jupyter nbextension enable collapsible_headings/main --sys-prefix
 RUN fix-permissions $HOME_DIR
 
 USER $NB_UID
-# Install Python dependencies from requirements.txt in advance
-# Useful for development since changes in code will not trigger a layer re-build
 WORKDIR $WORK_DIR
-
-#COPY ./requirements.txt ./
-#RUN pip install --upgrade notebook==6.4.12
-#RUN pip install --upgrade pip
-#RUN pip install -r ./requirements.txt --user
-
-# install experiment code in editable mode
-#COPY ./setup.py ./
-#COPY ./src/ ./src/
-#
-#USER root
-#RUN chown -R $NB_UID:$NB_GID ./src/
-USER $NB_UID
+RUN fix-permissions $HOME_DIR
