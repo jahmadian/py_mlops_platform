@@ -7,7 +7,7 @@ ARG JUPYTER_USERNAME
 ENV HOME_DIR=/home/$JUPYTER_USERNAME
 ENV WORK_DIR=$HOME_DIR/work
 
-
+RUN pip install --upgrade notebook==7.0.2
 COPY ./requirements.txt ./
 RUN pip install --upgrade pip && \
     pip install -r ./requirements.txt
