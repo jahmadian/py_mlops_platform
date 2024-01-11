@@ -25,12 +25,13 @@ RUN ldconfig
 RUN mkdir -p $MLFLOW_ARTIFACT_STORE
 RUN jupyter nbextension enable toc2/main --sys-prefix
 RUN jupyter nbextension enable collapsible_headings/main --sys-prefix
+RUN fix-permissions $HOME_DIR
 
 USER $NB_UID
 # Install Python dependencies from requirements.txt in advance
 # Useful for development since changes in code will not trigger a layer re-build
 WORKDIR $WORK_DIR
-RUN fix-permissions $HOME_DIR
+
 #COPY ./requirements.txt ./
 #RUN pip install --upgrade notebook==6.4.12
 #RUN pip install --upgrade pip
