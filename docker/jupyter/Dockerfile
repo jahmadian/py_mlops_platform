@@ -33,9 +33,9 @@ RUN pip install --upgrade pip && \
     pip install -r ./requirements.txt --user
 
 # install experiment code in editable mode
-COPY ./setup.py ./
-COPY ./src/ ./src/
-
-USER root
-RUN chown -R $NB_UID:$NB_GID ./src/
+#COPY ./setup.py ./
+#COPY ./src/ ./src/
+#
+#USER root
+#RUN chown -R $NB_UID:$NB_GID ./src/
 USER $NB_UID
