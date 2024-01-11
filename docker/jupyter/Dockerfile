@@ -26,11 +26,11 @@ USER $NB_UID
 # Install Python dependencies from requirements.txt in advance
 # Useful for development since changes in code will not trigger a layer re-build
 WORKDIR $WORK_DIR
-RUN fix-permissions $HOME_DIR
+#RUN fix-permissions $HOME_DIR
 COPY ./requirements.txt ./
 RUN pip install --upgrade notebook==6.4.12
-RUN pip install --upgrade pip && \
-    pip install -r ./requirements.txt --user
+RUN pip install --upgrade pip
+RUN pip install -r ./requirements.txt --user
 
 # install experiment code in editable mode
 #COPY ./setup.py ./
