@@ -8,6 +8,7 @@ services:
       args:
         - MLFLOW_VERSION=${MLFLOW_VERSION}
     image: ghcr.io/mlflow/mlflow:v2.9.2
+    restart: always
     ports:
       - "8000:8000"
     environment:

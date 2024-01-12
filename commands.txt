@@ -1,0 +1,6 @@
+sudo systemctl enable docker
+- make sure docker compose includes:
+    restart: always
+
+docker compose build
+docker compose up -d
