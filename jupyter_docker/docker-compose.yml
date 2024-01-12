@@ -14,17 +14,17 @@ services:
         - JUPYTER_BASE_VERSION=${JUPYTER_BASE_VERSION}
         - JUPYTER_USERNAME=${JUPYTER_USERNAME}
     image: jupyter/scipy-notebook:x86_64-python-3.11
+    restart: always
     ports:
       - "10000:8888"
-    depends_on:
-      - mlflow
     environment:
       MLFLOW_TRACKING_URI: ${MLFLOW_TRACKING_URI}
       JUPYTER_ENABLE_LAB: ${JUPYTER_ENABLE_LAB}
       NB_USER: ${JUPYTER_USERNAME}
+      JUPYTER_PASSWORD: ${JUPYTER_PASSWORD}
+      JUPYTER_TOKEN: easy
       CHOWN_HOME: "yes"
       CHOWN_HOME_OPTS: '-R'
     volumes:
       - ./notebook:/home/${JUPYTER_USERNAME}/work
       - ./${MLFLOW_ARTIFACT_STORE}:/${MLFLOW_ARTIFACT_STORE}
-

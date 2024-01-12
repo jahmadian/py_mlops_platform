@@ -2,5 +2,9 @@ sudo systemctl enable docker
 - make sure docker compose includes:
     restart: always
 
+ in jupyter machine
+ mkdir -p data/artifacts
+ chown -hR <user> data
+
 docker compose build
 docker compose up -d

@@ -25,8 +25,9 @@ RUN ldconfig
 RUN mkdir -p $MLFLOW_ARTIFACT_STORE
 RUN jupyter nbextension enable toc2/main --sys-prefix
 RUN jupyter nbextension enable collapsible_headings/main --sys-prefix
-#RUN fix-permissions $HOME_DIR
+RUN fix-permissions $HOME_DIR
+RUN chown -hR $JUPYTER_USERNAME /$DATA_DIR
 
 USER $NB_UID
 WORKDIR $WORK_DIR
-#RUN fix-permissions $HOME_DIR
+RUN fix-permissions $HOME_DIR
